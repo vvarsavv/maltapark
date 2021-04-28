@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "codeceptjs": "^3.0.6",
+    "codeceptjs-chai": "^2.2.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^9.0.0"
+  },
+  "scripts": {
+    "search": "codeceptjs run --grep @find-books --steps"
+  }
+}
