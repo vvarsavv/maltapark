@@ -19,7 +19,7 @@ A small UI test implementation via [CodeceptJS framework](https://codecept.io/).
 <!-- UI test coverage --> 
 ## UI test coverage
 
-In this project the UI tests cover a books, antiques and art classified searches in https://www.maltapark.com.
+In this project the UI tests cover books, antiques and art classified searches in https://www.maltapark.com.
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -78,13 +78,12 @@ maltapark
 ├───jsconfig.json
 ├───LICENSE
 ├───package-lock.json
-├───package.json
-└───steps_file.js
+└───package.json
 ```
 
 Helpers
 * data -> The data folder holds info related to the MaltaPark URL (domains.js), and a classifieds list (classifiedsList.js).
-* pages  -> The boards' page objects are located in this folder. Page objects' methods are separated depending on their use.
+* pages  -> The page objects for the homepage (homePage.js) and search results page (searchResultsPage.js) are located in this folder. Page objects' methods are separated depending on their use.
 
 tests -> UI test scenarios are located in this folder.
 
