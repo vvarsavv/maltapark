@@ -16,6 +16,10 @@ module.exports = {
         featuredPrice: '//*[@class="price"]'
     },
 
+    text: {
+        noResults: 'No results found.'
+    },
+
     /**
      * checks for logo and buttons in page
      */
@@ -39,12 +43,19 @@ module.exports = {
      * grabs item's text and price by choosing the first featured item
      */
     grabItemDetails: async function () {
-        const grabItemIds = await I.grabValueFromAll(this.results.dataItemID);
-        const firstFeaturedItem = grabItemIds.shift();
-        const grabFeaturedText = await I.grabTextFrom(`${this.featuredItem.featured(firstFeaturedItem)} ${this.featuredItem.featuredHeader}`);
-        const grabFeaturedPrice = await I.grabTextFrom(`${this.featuredItem.featured(firstFeaturedItem)} ${this.featuredItem.featuredPrice}`);
+        const numOfElements = await I.grabNumberOfVisibleElements(this.results.featuredBox);
 
-        I.say(`First item title: ${grabFeaturedText}, priced @ ${grabFeaturedPrice}`);
+        if (numOfElements === 0) {
+            I.waitForText(this.text.noResults)
+            I.see(this.text.noResults);
+        }
 
+        else {
+            const grabItemIds = await I.grabValueFromAll(this.results.dataItemID);
+            const firstFeaturedItem = grabItemIds.shift();
+            const grabFeaturedText = await I.grabTextFrom(`${this.featuredItem.featured(firstFeaturedItem)} ${this.featuredItem.featuredHeader}`);
+            const grabFeaturedPrice = await I.grabTextFrom(`${this.featuredItem.featured(firstFeaturedItem)} ${this.featuredItem.featuredPrice}`);
+            I.say(`First item title: ${grabFeaturedText}, priced @ ${grabFeaturedPrice}`);
+        }
     }
 }
