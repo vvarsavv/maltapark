@@ -1,16 +1,16 @@
-# MaltaPark (Featured item test) Project 
+# MaltaPark (Featured item test) Project
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
 * [About the Project](#about-the-project)
- * [UI test coverage](#ui-test-coverage)
+* [UI test coverage](#ui-test-coverage)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Project Structure](#project-structure)
   * [Executing tests](#executing-tests)
-  
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
@@ -19,7 +19,7 @@ A small UI test implementation via [CodeceptJS framework](https://codecept.io/).
 <!-- UI test coverage --> 
 ## UI test coverage
 
-In this project the UI tests cover a books, antiques and art classified searches in https://www.maltapark.com.
+In this project the UI tests cover books, antiques and art classified searches in https://www.maltapark.com.
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -28,11 +28,11 @@ To get a local copy up and running follow the instructions below:
 
 <!-- Prerequisites -->
 ### Prerequisites
- 
-* Node: 
+
+* Node:
 > https://nodejs.org/
 
-* NPM: 
+* NPM:
 > https://www.npmjs.com/get-npm
 
 *  Java SE Development Kit 16.0.1 (For Allure reporter):
@@ -43,7 +43,7 @@ To get a local copy up and running follow the instructions below:
 
 <!-- Installation -->
 ### Installation
- 
+
 * Clone the repo
 ```sh
 git clone https://github.com/vvarsavv/maltapark.git
@@ -78,13 +78,12 @@ maltapark
 ├───jsconfig.json
 ├───LICENSE
 ├───package-lock.json
-├───package.json
-└───steps_file.js
+└───package.json
 ```
 
 Helpers
 * data -> The data folder holds info related to the MaltaPark URL (domains.js), and a classifieds list (classifiedsList.js).
-* pages  -> The boards' page objects are located in this folder. Page objects' methods are separated depending on their use.
+* pages  -> The page objects for the homepage (homePage.js) and search results page (searchResultsPage.js) are located in this folder. Page objects' methods are separated depending on their use.
 
 tests -> UI test scenarios are located in this folder.
 
@@ -95,7 +94,7 @@ package.json -> dependencies and scripts are located in this file.
 <!-- executing-tests -->
 ## Executing tests
 
-The scenarios can be launched with the following script: 
+The scenarios can be launched with the following script:
 ```
 npm run search
 ```
