@@ -78,7 +78,8 @@ maltapark
 ├───jsconfig.json
 ├───LICENSE
 ├───package-lock.json
-└───package.json
+├───package.json
+└───steps_file.js
 ```
 
 Helpers
