@@ -41,7 +41,7 @@ module.exports = {
     },
 
     /**
-     * grabs item's text and price by choosing the first featured item
+     * grabs item's text and price by choosing the first classified item
      */
     grabItemDetails: async function () {
         const numOfElements = await I.grabNumberOfVisibleElements(this.results.featuredBox);
@@ -53,11 +53,11 @@ module.exports = {
 
         else {
             const grabItemIds = await I.grabValueFromAll(`${this.results.classifiedsBox} ${this.results.dataItemID}`);
-            const firstFeaturedItem = grabItemIds.shift();
+            const firstClassifiedItem = grabItemIds.shift();
 
-            I.scrollTo(`${this.classifiedItem.classified(firstFeaturedItem)} ${this.classifiedItem.classifiedHeader}`);
-            const grabFeaturedText = await I.grabTextFrom(`${this.classifiedItem.classified(firstFeaturedItem)} ${this.classifiedItem.classifiedHeader}`);
-            const grabFeaturedPrice = await I.grabTextFrom(`${this.classifiedItem.classified(firstFeaturedItem)} ${this.classifiedItem.classifiedPrice}`);
+            I.scrollTo(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedHeader}`);
+            const grabFeaturedText = await I.grabTextFrom(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedHeader}`);
+            const grabFeaturedPrice = await I.grabTextFrom(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedPrice}`);
             I.say(`First item title: ${grabFeaturedText}, priced @ ${grabFeaturedPrice}`);
         }
     }
