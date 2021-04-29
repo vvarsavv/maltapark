@@ -6,7 +6,7 @@
     "puppeteer": "^9.0.0"
   },
   "scripts": {
-    "search": "codeceptjs run --grep @find-books --steps",
+    "search": "codeceptjs run --grep @find-classifieds --steps",
     "search:reporter": "npm run search && allure serve output"
   }
 }
