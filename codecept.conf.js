@@ -7,9 +7,6 @@ exports.config = {
       show: true,
       windowSize: '1200x900'
     },
-    ChaiWrapper: {
-      require: "codeceptjs-chai"
-    }
   },
   include: {
     I: './steps_file.js',
@@ -20,16 +17,18 @@ exports.config = {
   },
   bootstrap: null,
   mocha: {},
-  name: 'Maltapark',
+  name: 'MaltaPark',
   plugins: {
-    pauseOnFail: {},
     retryFailedStep: {
       enabled: true
     },
-    tryTo: {
+    screenshotOnFail: {
       enabled: true
     },
-    screenshotOnFail: {
+    allure: {
+      enabled: true
+    },
+    autoDelay: {
       enabled: true
     }
   }
