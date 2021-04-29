@@ -7,13 +7,14 @@ module.exports = {
     results: {
         resultsTextElement: '[class="page-searchsummary"]',
         featuredBox: '[class*="item featured"]',
+        classifiedsBox: '[class*="classifieds"]',
         dataItemID: '[name="ItemID"]',
     },
 
-    featuredItem: {
-        featured: (itemId) => `//*[@data-itemid="${itemId}"]`,
-        featuredHeader: '//*[@class="header"]',
-        featuredPrice: '//*[@class="price"]'
+    classifiedItem: {
+        classified: (itemId) => `//*[@data-itemid="${itemId}"]`,
+        classifiedHeader: '//*[@class="header"]',
+        classifiedPrice: '//*[@class="price"]'
     },
 
     text: {
@@ -51,10 +52,12 @@ module.exports = {
         }
 
         else {
-            const grabItemIds = await I.grabValueFromAll(this.results.dataItemID);
+            const grabItemIds = await I.grabValueFromAll(`${this.results.classifiedsBox} ${this.results.dataItemID}`);
             const firstFeaturedItem = grabItemIds.shift();
-            const grabFeaturedText = await I.grabTextFrom(`${this.featuredItem.featured(firstFeaturedItem)} ${this.featuredItem.featuredHeader}`);
-            const grabFeaturedPrice = await I.grabTextFrom(`${this.featuredItem.featured(firstFeaturedItem)} ${this.featuredItem.featuredPrice}`);
+
+            I.scrollTo(`${this.classifiedItem.classified(firstFeaturedItem)} ${this.classifiedItem.classifiedHeader}`);
+            const grabFeaturedText = await I.grabTextFrom(`${this.classifiedItem.classified(firstFeaturedItem)} ${this.classifiedItem.classifiedHeader}`);
+            const grabFeaturedPrice = await I.grabTextFrom(`${this.classifiedItem.classified(firstFeaturedItem)} ${this.classifiedItem.classifiedPrice}`);
             I.say(`First item title: ${grabFeaturedText}, priced @ ${grabFeaturedPrice}`);
         }
     }
