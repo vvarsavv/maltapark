@@ -1,4 +1,4 @@
-# MaltaPark (Featured item test) Project
+# MaltaPark (Classifieds item test) Project
 
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
