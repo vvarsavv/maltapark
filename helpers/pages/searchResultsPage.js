@@ -56,9 +56,9 @@ module.exports = {
             const firstClassifiedItem = grabItemIds.shift();
 
             I.scrollTo(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedHeader}`);
-            const grabFeaturedText = await I.grabTextFrom(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedHeader}`);
-            const grabFeaturedPrice = await I.grabTextFrom(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedPrice}`);
-            I.say(`First item title: ${grabFeaturedText}, priced @ ${grabFeaturedPrice}`);
+            const grabClassifiedText = await I.grabTextFrom(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedHeader}`);
+            const grabClassifiedPrice = await I.grabTextFrom(`${this.classifiedItem.classified(firstClassifiedItem)} ${this.classifiedItem.classifiedPrice}`);
+            I.say(`First item title: ${grabClassifiedText}, priced @ ${grabClassifiedPrice}`);
         }
     }
 }
